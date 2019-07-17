@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <p>cjq1  hahaha aaaaaa123aaa</p>
+   
+    <p>cjq第二次修改<p>
     <router-view/>
   </div>
 </template>
