@@ -2,8 +2,20 @@ import Vue from 'vue'
 import { Toast } from 'vant';
 import Router from 'vue-router'
 <<<<<<< HEAD
+//import HelloWorld from '@/components/HelloWorld'
+import Index from "@/views/Index"
+import Adishes from "@/views/Adishes"
+import Mine from "@/views/Mine"
+import Cart from "@/views/Cart"
+import Home from "../views/Home"
+import Comlist from "@/views/Comlist"
+import Login from "@/views/Login"
+import Register from "@/views/Register"
+=======
+<<<<<<< HEAD
 import HelloWorld from '@/components/HelloWorld'
 import Quan from '@/viems/caipin'
+>>>>>>> 8aa92db63e24980590733986b5b95ecb28389b07
 
 import Kefu from '@/viems/kefu'
 import Youhui from '@/viems/youhui'
@@ -33,7 +45,46 @@ Vue.use(Router)
 
 export default new Router({
   routes: [
+  	{
+    	path:'/',
+    	redirect:"/login"
+    },
     {
+<<<<<<< HEAD
+    	path:"/login",
+    	component:Login
+    },
+    {
+    	path:"/register",
+    	component:Register
+    },
+    {
+    	path:"/index",
+    	redirect:"/home",
+    	component:Index,
+    	children:[
+    		{
+    			path:"/home",
+    			component:Home
+    		},
+    		{
+    			path:"/comlist",
+    			component:Comlist
+    		},
+    		{
+    			path:"/cart",
+    			component:Cart
+    		},
+    		{
+    			path:"/Mine",
+    			component:Mine
+    		},
+    		{
+    			path:"/adishes",
+    			component:Adishes
+    		}
+    	]
+=======
 <<<<<<< HEAD
     	path:'/',
 			redirect:'/caipin'
@@ -102,6 +153,7 @@ export default new Router({
       component:Message
 >>>>>>> 8374d1cdcb790bdf17afd27d3994d163c7dbf94d
 >>>>>>> a5751f966c453fa37bf5d9d54279bf1b0b5641af
+>>>>>>> 8aa92db63e24980590733986b5b95ecb28389b07
     }
   ]
 })

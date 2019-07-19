@@ -1,5 +1,9 @@
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 <template>
   <div id="app">
+<<<<<<< HEAD
+  <router-view/>
+=======
 <<<<<<< HEAD
    
     <router-view/>
@@ -14,6 +18,7 @@
 >>>>>>> 8374d1cdcb790bdf17afd27d3994d163c7dbf94d
     <router-view></router-view>
 >>>>>>> a5751f966c453fa37bf5d9d54279bf1b0b5641af
+>>>>>>> 8aa92db63e24980590733986b5b95ecb28389b07
   </div>
 </template>
 
@@ -30,6 +35,9 @@ export default {
 <<<<<<< HEAD
 
 =======
+<<<<<<< HEAD
+
+=======
 /* #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -40,4 +48,5 @@ export default {
 } */
 >>>>>>> 8374d1cdcb790bdf17afd27d3994d163c7dbf94d
 >>>>>>> a5751f966c453fa37bf5d9d54279bf1b0b5641af
+>>>>>>> 8aa92db63e24980590733986b5b95ecb28389b07
 </style>

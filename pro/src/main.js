@@ -9,6 +9,15 @@ import Vant from 'vant';
 import 'vant/lib/index.css';
 import router from './router'
 <<<<<<< HEAD
+import Vant from 'vant';
+import Axios from "axios"
+import 'vant/lib/index.css';
+import store from "./store"
+
+Vue.use(Vant)
+Vue.config.productionTip = false
+=======
+<<<<<<< HEAD
 import store from "./store"
 
 =======
@@ -29,6 +38,7 @@ Vue.use(Vant);
 
 =======
 >>>>>>> a5751f966c453fa37bf5d9d54279bf1b0b5641af
+>>>>>>> 8aa92db63e24980590733986b5b95ecb28389b07
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
