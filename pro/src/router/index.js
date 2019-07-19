@@ -5,6 +5,7 @@ import Index from "@/views/Index"
 import Adishes from "@/views/Adishes"
 import Mine from "@/views/Mine"
 import Cart from "@/views/Cart"
+import Home from "../views/Home"
 import Comlist from "@/views/Comlist"
 import Login from "@/views/Login"
 import Register from "@/views/Register"
@@ -22,33 +23,35 @@ export default new Router({
     	component:Login
     },
     {
-      path: '/index',
-      component: Index,
-      children:[
-      	
-      ]
-    },
-    {
-      path:"/adishes",
-      component:Adishes
-    },
-    {
-      path:"/mine",
-      component:Mine
-    },
-    {
-      path:"/cart",
-      component:Cart
-    },
-    {
-      path:"/comlist",
-      component:Comlist
-    },
-    {
     	path:"/register",
     	component:Register
+    },
+    {
+    	path:"/index",
+    	redirect:"/home",
+    	component:Index,
+    	children:[
+    		{
+    			path:"/home",
+    			component:Home
+    		},
+    		{
+    			path:"/comlist",
+    			component:Comlist
+    		},
+    		{
+    			path:"/cart",
+    			component:Cart
+    		},
+    		{
+    			path:"/Mine",
+    			component:Mine
+    		},
+    		{
+    			path:"/adishes",
+    			component:Adishes
+    		}
+    	]
     }
-    
-    
   ]
 })

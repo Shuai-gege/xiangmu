@@ -6,6 +6,7 @@ import router from './router'
 import Vant from 'vant';
 import Axios from "axios"
 import 'vant/lib/index.css';
+import store from "./store"
 
 Vue.use(Vant)
 Vue.config.productionTip = false
@@ -13,6 +14,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
