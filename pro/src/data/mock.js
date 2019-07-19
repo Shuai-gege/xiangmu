@@ -7,7 +7,9 @@ var data = Mock.mock({
          'pdesc':'@csentence()',//商品描述
          'num':'@integer(1,10)',//商品数量
          'ptitle':'@ctitle(4,8)',//商品名字
-         'pimg':"@image('200x200','#fb0a2a')"//商品图片
+         'pimg':"@image('200x200','#fb0a2a')",//商品图片
+         'danxuan':false,
+         'bujin':1
     }]
 })
 

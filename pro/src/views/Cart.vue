@@ -10,9 +10,10 @@
         :title="item.ptitle"
         :thumb="item.pimg" 
         :key='item'
+        @click='enter(item.pid)'
         >
         <div slot="footer">
-          <van-stepper v-model="value" :disable-input='true' @change='num'/>
+          
         </div>
       </van-card>
     </div>
@@ -43,6 +44,10 @@ export default {
         num(){
           //  console.log(this.value)
            this.nums = this.value 
+        },
+        enter(pid){
+             //this.$route.push('/Detail/'+pid)
+             //console.log(pid)
         }
       },
 }

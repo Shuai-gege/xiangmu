@@ -7,6 +7,7 @@ import App from './App'
 import router from './router'
 
 import './data/mock.js'
+import './data/text.js'
 Vue.config.productionTip = false
 Vue.use(Vant);
 /* eslint-disable no-new */

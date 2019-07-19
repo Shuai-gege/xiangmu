@@ -1,11 +1,9 @@
 <template>
     <div>
-        
-         
        <van-row>
         <van-col span="4">
             <div class="photo">
-            <van-uploader v-model="fileList" max-count='1' />
+            <van-uploader v-model="fileList"  upload-text='点击上传头像' capture='camera'/>
         </div>  
         </van-col>
         <van-col span="10" offset="4">
@@ -15,15 +13,15 @@
             
         <div class="person">
             <figure>
-                <aside>
+                <aside@click='tap()'>
                     <p >0.00</p>
                     <p>余额(元)</p>
                 </aside>
-                <aside>
-                    <p >0.00</p>
+                <aside @click='tap()'>
+                    <p>0.00</p>
                     <p>欠款(元)</p>
                 </aside>
-                <aside>
+                <aside @click='tap()'>
                     <p class="money">0.00</p>
                     <p>优惠券</p>
                 </aside>
@@ -40,25 +38,27 @@
                 <van-grid-item
                     v-for="value in 1"
                     :key="value"
-                    icon="photo-o"
+                    icon="vip-card-o"
                     text="待收款"
+                    @click='tap()'
+                
                 />
                  <van-grid-item
                     v-for="value in 1"
                     :key="value"
-                    icon="photo-o"
+                    icon="logistics"
                     text="待发货"
                 />
                 <van-grid-item
                     v-for="value in 1"
                     :key="value"
-                    icon="photo-o"
+                    icon="gift-o"
                     text="待收货"
                 />
                  <van-grid-item
                     v-for="value in 1"
                     :key="value"
-                    icon="photo-o"
+                    icon="passed"
                     text="已收货"
                 />
             </van-grid>
@@ -69,8 +69,9 @@
                      <van-divider :style="{ borderColor: '#BBB',padding: '0 15px'}">
                      </van-divider>
                      <div class="zheng">￥ 500元</div>
-                     <div class="liji">立即充值</div>
+                     <div class="liji" @click='tap()'>立即充值</div>
             </div>
+            
     </div>
 </template>
 
@@ -87,8 +88,13 @@ export default {
         afterRead(file) {
            
             console.log(file);
+        },
+        tap(){
+            //console.log("a")
+            this.$notify('功能暂未开启,敬请期待');
         }
     },
+   
 }
 </script>
 
