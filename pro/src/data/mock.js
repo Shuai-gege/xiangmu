@@ -1,7 +1,10 @@
-import Mock from 'mockjs';
+
+import Mock from 'mockjs'
+
+
 //模拟购物车列表
 var data = Mock.mock({
-    'list|8-10':[{
+    	'list|8-10':[{
          'pid|+1':0,//id
          'price':'@natural(19,299)',//商品价格
          'pdesc':'@csentence()',//商品描述
@@ -14,3 +17,4 @@ var data = Mock.mock({
 })
 
 Mock.mock('http://www.baidu.com/api',data)
+

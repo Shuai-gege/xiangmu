@@ -124,7 +124,6 @@ line-height: 20px;
 text-align: center;
 border: 1px solid rgba(187, 187, 187, 1);
 display: flex;
-
 }
 aside{
     width: 100px;
@@ -147,7 +146,6 @@ height: 150px;
 line-height: 20px;
 border-bottom: 1px solid rgba(187, 187, 187, 1);
 display: flex;
-
 flex-direction: column
 }
 .title{
@@ -167,7 +165,6 @@ line-height: 20px;
 border-bottom: 1px solid rgba(187, 187, 187, 1);
 display: flex;
 flex-direction: column;
-
 }
 .zheng{
 left: 18px;
