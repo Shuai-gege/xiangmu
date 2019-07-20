@@ -10,7 +10,7 @@
            
             <van-cell title="账号信息安全" value=" > " label="修改密码" :center='true' to='/setPassword'/>
             </van-cell-group>
-            <van-cell title="第三方账号管理" value=" > " label="" :center='true' />
+            <van-cell title="第三方账号管理" value=" > "  label=""  :center='true' />
             </van-cell-group>
             <van-cell title="清除缓存" value="  > " label="大小30k" :center='true' />
             </van-cell-group>

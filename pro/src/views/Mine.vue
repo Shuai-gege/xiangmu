@@ -12,7 +12,7 @@
         </van-row>
         <div class="person">
             <figure>
-                <aside@click='tap()'>
+                <aside @click='tap()'>
                     <p >0.00</p>
                     <p>余额(元)</p>
                 </aside>
