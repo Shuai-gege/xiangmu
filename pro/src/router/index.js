@@ -10,6 +10,7 @@ import Mine from '@/views/Mine'
 import Setting from '@/views/Setting'
 import setPassword from '@/views/setPassword'
 import Message from '@/views/Message'
+import My from '@/views/My'
 Vue.use(Toast)
 Vue.use(Router)
 
@@ -49,6 +50,10 @@ export default new Router({
     {
       path:'/message',
       component:Message
+    },
+    {
+      path:'/my',
+      component:My
     }
   ]
 })

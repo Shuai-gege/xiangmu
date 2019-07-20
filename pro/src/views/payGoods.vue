@@ -33,7 +33,7 @@
             <van-submit-bar
             :price="sum"
             button-text="提交订单"
-            @submit="onSubmit"
+            @submit="onSubmit()"
             >
             <van-checkbox v-model="checked" @click='chioceall'>全选</van-checkbox>
             <span slot="tip">
@@ -52,6 +52,7 @@
 
 <script>
 import axios from 'axios'
+import {mapState,mapGetters,mapActions} from 'vuex';
 
 export default {
         data(){
@@ -63,7 +64,10 @@ export default {
                 step:1,
                 djiage:'',
                 sum : 0,
-                pri:[]
+                pri:[],
+                xuan:0,
+               
+                
                
             }
         },
@@ -98,9 +102,19 @@ export default {
                         clearInterval(timer);
                         this.$toast.clear();
                         this.$router.push('/addMessage')
+
                     }
                     }, 1000);
-                    
+                    this.list.forEach((item,index)=>{
+                        if(item.danxuan){
+                            this.xuan++
+                            //this.num = this.xuan.length
+                            this.abc ='已选中'
+                        }
+                       
+                    })
+                  this.$store.commit('onSubmit',this.xuan)
+                  
                 }
                  
             },
@@ -154,11 +168,8 @@ export default {
             }).then((data)=>{
                 //console.log(data.data.list.length)
                 this.list =data.data.list 
-            })
-            
-           
+            }) 
         },
-       
 }   
 </script>
 <style>
