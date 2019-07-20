@@ -33,7 +33,7 @@
 	import axios from "axios"
 	
 	export default{
-		name:'youhui',
+		name:'apengyouhui',
 		data(){
 			return{
 				list:[]
@@ -53,7 +53,7 @@
 		      this.$router.go(-1)
 		    },
 		    onClickRight() {
-		       this.$router.push("/shixiao")
+		       this.$router.push("/apengshixiao")
 		    },
 		}
 	}

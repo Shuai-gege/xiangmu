@@ -14,14 +14,14 @@ import Register from "@/views/Register"
 =======
 <<<<<<< HEAD
 import HelloWorld from '@/components/HelloWorld'
-import Quan from '@/viems/caipin'
+import Quan from '@/viems/apengcaipin'
 >>>>>>> 8aa92db63e24980590733986b5b95ecb28389b07
 
-import Kefu from '@/viems/kefu'
-import Youhui from '@/viems/youhui'
-import Shi from '@/viems/shixiao'
-import Chang from '@/viems/changjian'
-import Liao from '@/viems/liaotian'
+import Kefu from '@/viems/apengkefu'
+import Youhui from '@/viems/apengyouhui'
+import Shi from '@/viems/apengshixiao'
+import Chang from '@/viems/apengchangjian'
+import Liao from '@/viems/apengliaotian'
 =======
 <<<<<<< HEAD
 import Hotlists from '@/views/Hotlists'
@@ -87,30 +87,30 @@ export default new Router({
 =======
 <<<<<<< HEAD
     	path:'/',
-			redirect:'/caipin'
+			redirect:'/apengcaipin'
     },
     {
-    	path:'/kefu',
+    	path:'/apengkefu',
     	component:Kefu
     },
     {
-    	path:'/youhui',
+    	path:'/apengyouhui',
     	component:Youhui
     },
     {
-    	path:'/caipin',
+    	path:'/apengcaipin',
     	component:Quan,
     },
     {
-    	path:'/shixiao',
+    	path:'/apengshixiao',
     	component:Shi
     },
     {
-    	path:'/changjian',
+    	path:'/apengchangjian',
     	component:Chang
     },
     {
-    	path:'/liaotian',
+    	path:'/apengliaotian',
     	component:Liao
 =======
 <<<<<<< HEAD

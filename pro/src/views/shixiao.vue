@@ -48,7 +48,7 @@
 	import axios from "axios"
 	
 	export default{
-		name:'youhui',
+		name:'apengshixiao',
 		data(){
 			return{
 				list:[]
