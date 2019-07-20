@@ -10,7 +10,6 @@
              <h4 class="name" >{{name}}</h4>
         </van-col>
         </van-row>
-            
         <div class="person">
             <figure>
                 <aside@click='tap()'>
