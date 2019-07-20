@@ -1,4 +1,3 @@
-<script src="../jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
 <template>
 	<div>
 		<van-nav-bar
@@ -50,7 +49,7 @@
 	      Toast('按钮');
 	    },
 	    tap(){
-	    	this.$router.push("/login")
+	    	this.$router.push("/jsslogin")
 	    }
 	  }
 	}

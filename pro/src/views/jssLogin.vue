@@ -25,11 +25,8 @@
 		
 		<div class="anniu">
 			<van-button type="primary" @click="index()">登陆</van-button>
-			<van-button type="info" to="/register">注册</van-button>
+			<van-button type="info" to="/jssregister">注册</van-button>
 		</div>
-		<hr />
-		<h2>{{this.$store.state.count}}</h2>
-		<van-button type="info" @click="tap()">jiajia</van-button>
 		
 		
 	</div>
@@ -53,11 +50,9 @@
 	      Toast('按钮');
 	    },
 	    index(){
-	    	this.$router.push("/index")
+	    	this.$router.push("/jssindex")
 	    },
-	    tap(){
-	    	this.$store.commit("add")
-	    }
+	    
 	  }
 	}
 </script>

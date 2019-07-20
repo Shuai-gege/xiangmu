@@ -1,13 +1,13 @@
 <template>
 	<div>
-		<!--头部输入框-->
-		<van-nav-bar
+	<van-nav-bar
 		  left-text="客服"
 		  right-text="信息"
 		  :fixed="true"
 		  @click-left="tap()"
 		  @click-right="onClickRight"
 		/>
+	<div>
 		<van-pull-refresh v-model="isLoading" @refresh="onRefresh">
 			<div id="zhongjian">
 				<van-search placeholder="请输入搜索关键词"/>
@@ -45,28 +45,28 @@
 				<!--生鲜直降-->
 				&nbsp;
 				<van-image
-				  width="100"
-				  height="100"
+				  id="mao1"
+				  width="130"
+				  height="140"
 				  src="https://img.yzcdn.cn/vant/cat.jpeg"
 				/>
 				&nbsp;
-				<van-image
-				  width="50"
-				  height="50"
-				  src="https://img.yzcdn.cn/vant/cat.jpeg"
-				/>
-				&nbsp;
-				<van-image
-				  width="50"
-				  height="50"
-				  src="https://img.yzcdn.cn/vant/cat.jpeg"
-				/>
-				&nbsp;
-				<van-image
-				  width="50"
-				  height="50"
-				  src="https://img.yzcdn.cn/vant/cat.jpeg"
-				/>
+				<div id='mao'>
+					<van-image
+					  width="120"
+					  height="50"
+					  src="https://img.yzcdn.cn/vant/cat.jpeg"
+					/>
+					&nbsp;
+					<van-image
+					  
+					  width="120"
+					  height="50"
+					  src="https://img.yzcdn.cn/vant/cat.jpeg"
+					/>
+					&nbsp;
+				</div>
+			
 				<!--tap标签-->
 				<van-tabs v-model="active">
 				  <van-tab title="为你推荐">
@@ -109,16 +109,8 @@
 				</van-tabs>
 			</div>
 		</van-pull-refresh>
-			<!--底部-->
-			<van-tabbar v-model="active">
-			  <van-tabbar-item name="home" icon="home-o" to="/home">首页</van-tabbar-item>
-			  <van-tabbar-item name="search" icon="search" to="/Adishes">全部菜品</van-tabbar-item>
-			  <van-tabbar-item name="friends" icon="wap-nav" to="/Cart">常用清单</van-tabbar-item>
-			  <van-tabbar-item name="setting" icon="shopping-cart" to="/Comlist">购物车</van-tabbar-item>
-			  <van-tabbar-item name="setting" icon="friends-o" to="/Mine">我的</van-tabbar-item>
-			</van-tabbar>
-		
-		</div>
+	</div>
+	</div>
 </template>
 
 <script>
@@ -131,7 +123,8 @@
 		      	active: 0,
 		      	list:[],
 		      	count: 0,
-      			isLoading: false
+      			isLoading: false,
+      			
 		    }
 		},
 	  methods: {
@@ -157,33 +150,18 @@
 		    	console.log(data.data.data)
 		    	this.list = data.data.data
 		    })
-	    },
-	    
-	}
+		}
+  
+}
 </script>
 
 <style>
-	*{
-		margin-top:0;
-		padding-top:0;
+	#mao{
+		display: flex;
+		flex-direction: column;
+		padding-left:20px;
 	}
-	#zhongjian{
-		margin-top:46px;
-		margin-bottom:50px;
-	}
-	.box{
-		position: absolute;
-		top: 0;
-		left:57px;
-	}
-	#lun{
-		width:100%;
-		height:100px;
-	}
-	#tu{
-		background:#f00;
-	}
-	.shijian{
-		float: right;
+	#mao1{
+		float:left
 	}
 </style>

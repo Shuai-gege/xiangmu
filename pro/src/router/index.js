@@ -1,134 +1,133 @@
 import Vue from 'vue'
 import { Toast } from 'vant';
 import Router from 'vue-router'
-<<<<<<< HEAD
-//import HelloWorld from '@/components/HelloWorld'
-import Index from "@/views/Index"
-import Adishes from "@/views/Adishes"
-import Mine from "@/views/Mine"
-import Cart from "@/views/Cart"
-import Home from "../views/Home"
-import Comlist from "@/views/Comlist"
-import Login from "@/views/Login"
-import Register from "@/views/Register"
-=======
-<<<<<<< HEAD
-import HelloWorld from '@/components/HelloWorld'
-import Quan from '@/viems/caipin'
->>>>>>> 8aa92db63e24980590733986b5b95ecb28389b07
 
+//import HelloWorld from '@/components/HelloWorld'
+
+import HelloWorld from '@/components/HelloWorld'
+
+
+/*import Quan from '@/viems/caipin'
 import Kefu from '@/viems/kefu'
 import Youhui from '@/viems/youhui'
 import Shi from '@/viems/shixiao'
 import Chang from '@/viems/changjian'
-import Liao from '@/viems/liaotian'
-=======
-<<<<<<< HEAD
+import Liao from '@/viems/liaotian'*/
+
 import Hotlists from '@/views/Hotlists'
->>>>>>> a5751f966c453fa37bf5d9d54279bf1b0b5641af
 
-
-
-=======
 // import HelloWorld from '@/components/HelloWorld'
 // import Index from '@/views/Index'
-import Cart from '@/views/Cart'
+
 import payGoods from '@/views/payGoods'
 import addMessage from '@/views/addMessage'
-import Mine from '@/views/Mine'
+
 import Setting from '@/views/Setting'
 import setPassword from '@/views/setPassword'
 import Message from '@/views/Message'
 Vue.use(Toast)
->>>>>>> 8374d1cdcb790bdf17afd27d3994d163c7dbf94d
+
 Vue.use(Router)
+
+import jssHome from "@/views/jssHome"
+import jssLogin from "@/views/jssLogin"
+import jssRegister from "@/views/jssRegister"
+import jssIndex from "@/views/jssIndex"
+import jssMine from "@/views/jssMine"
+import jssCart from "@/views/jssCart"
+import jssComlist from "@/views/jssComlist"
+import jssAdishes from "@/views/jssAdishes"
+
+/*export default new Router({
+  routes: [
+    {
+    	path:"/",
+    	redirect:'/jsslogin'
+    },
+    {
+    	path:"/jsslogin",
+    	component:jssLogin
+    },
+    {
+    	path:"/jssRegister",
+    	component:jssRegister
+    },
+    {
+    	path:"/jssIndex",
+    	redirect:"/jssHome",
+    	component:jssIndex,
+    	children:[
+    		{
+    			path:"/jssHome",
+    			component:jssHome
+    		},
+    		{
+    			path:"/jssCart",
+    			component:jssCart
+    		},
+    		{
+    			path:"/jssAdishes",
+    			component:jssAdishes
+    		},
+    		{
+    			path:"/jssComlist",
+    			component:jssComlist
+    		},
+    		{
+    			path:"/jssMine",
+    			component:jssMine
+    		},
+    	]
+    	
+    }
+  ]
+})
+*/
 
 export default new Router({
   routes: [
-  	{
-    	path:'/',
-    	redirect:"/login"
+  	
+    {
+    	path:"/",
+    	redirect:'/jsslogin'
     },
     {
-<<<<<<< HEAD
-    	path:"/login",
-    	component:Login
+    	path:"/jsslogin",
+    	component:jssLogin
     },
     {
-    	path:"/register",
-    	component:Register
+    	path:"/jssRegister",
+    	component:jssRegister
     },
     {
-    	path:"/index",
-    	redirect:"/home",
-    	component:Index,
+    	path:"/jssIndex",
+    	redirect:"/jssHome",
+    	component:jssIndex,
     	children:[
     		{
-    			path:"/home",
-    			component:Home
+    			path:"/jssHome",
+    			component:jssHome
     		},
     		{
-    			path:"/comlist",
-    			component:Comlist
+    			path:"/jssCart",
+    			component:jssCart
     		},
     		{
-    			path:"/cart",
-    			component:Cart
+    			path:"/jssAdishes",
+    			component:jssAdishes
     		},
     		{
-    			path:"/Mine",
-    			component:Mine
+    			path:"/jssComlist",
+    			component:jssComlist
     		},
     		{
-    			path:"/adishes",
-    			component:Adishes
-    		}
+    			path:"/jssMine",
+    			component:jssMine
+    		},
     	]
-=======
-<<<<<<< HEAD
-    	path:'/',
-			redirect:'/caipin'
+    	
     },
-    {
-    	path:'/kefu',
-    	component:Kefu
-    },
-    {
-    	path:'/youhui',
-    	component:Youhui
-    },
-    {
-    	path:'/caipin',
-    	component:Quan,
-    },
-    {
-    	path:'/shixiao',
-    	component:Shi
-    },
-    {
-    	path:'/changjian',
-    	component:Chang
-    },
-    {
-    	path:'/liaotian',
-    	component:Liao
-=======
-<<<<<<< HEAD
-      path: '/hotlists',
-      name:'Hotlists',
-      component:Hotlists 
-=======
-        // path:'/index',
-        // component:index,
-        // children:[
-        //   {
-             
-        //   }
-        // ]
-        path:'/cart',
-        component:Cart
-    },
-    {
+  	{
       path:'/payGoods',
       component:payGoods
     },
@@ -136,10 +135,7 @@ export default new Router({
       path:'/addMessage',
       component:addMessage
     },
-    {
-      path:'/mine',
-      component:Mine
-    },
+    
     {
       path:'/setting',
       component:Setting
@@ -151,9 +147,6 @@ export default new Router({
     {
       path:'/message',
       component:Message
->>>>>>> 8374d1cdcb790bdf17afd27d3994d163c7dbf94d
->>>>>>> a5751f966c453fa37bf5d9d54279bf1b0b5641af
->>>>>>> 8aa92db63e24980590733986b5b95ecb28389b07
     }
   ]
 })

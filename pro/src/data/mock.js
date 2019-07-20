@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import Mock from 'mockjs'
 var Random = Mock.Random;
 Random.extend({
@@ -12,22 +12,9 @@ Random.extend({
     }
 })
 
-var data = Mock.mock({
-    'list|10-15':[{
-        'pid|+1':0,     
-        'name':'@cname()',              //名字        
-        'paragraph':'@cparagraph(1)',   //描述
-        'images':"@image('200x200')",   //图片
-        'suijifanwei':"@fanwei()"       //随机范围斤数
-    }]
-})
-
-Mock.mock('http://jingdong.com/api',data)
-=======
-import Mock from 'mockjs';
 //模拟购物车列表
 var data = Mock.mock({
-    'list|8-10':[{
+    	'list|8-10':[{
          'pid|+1':0,//id
          'price':'@natural(19,299)',//商品价格
          'pdesc':'@csentence()',//商品描述
@@ -40,4 +27,4 @@ var data = Mock.mock({
 })
 
 Mock.mock('http://www.baidu.com/api',data)
->>>>>>> 8374d1cdcb790bdf17afd27d3994d163c7dbf94d
+
