@@ -131,7 +131,7 @@
 <script>
 	import axios from "axios"
 	export default{
-		name:"quanbucaipin",
+		name:"apengcaipin",
 		data(){
 			return{
 				value:'',
@@ -152,10 +152,10 @@
 		},
 		methods: {
 		    onClickLeft() {
-		      this.$router.push("/kefu")
+		      this.$router.push("/apengkefu")
 		    },
 		    onClickRight() {
-		       this.$router.push("/youhui")
+		       this.$router.push("/apengyouhui")
 		    },
 		    onRefresh() {
 		      setTimeout(() => {

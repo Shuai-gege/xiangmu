@@ -4,8 +4,6 @@ import Router from 'vue-router'
 
 //import HelloWorld from '@/components/HelloWorld'
 
-import HelloWorld from '@/components/HelloWorld'
-
 
 /*import Quan from '@/viems/caipin'
 import Kefu from '@/viems/kefu'
@@ -14,7 +12,15 @@ import Shi from '@/viems/shixiao'
 import Chang from '@/viems/changjian'
 import Liao from '@/viems/liaotian'*/
 
+/*import Quan from '@/viems/apengcaipin'
+import Kefu from '@/viems/apengkefu'
+import Youhui from '@/viems/apengyouhui'
+import Shi from '@/viems/apengshixiao'
+import Chang from '@/viems/apengchangjian'
+import Liao from '@/viems/apengliaotian'*/
+
 import Hotlists from '@/views/Hotlists'
+
 
 // import HelloWorld from '@/components/HelloWorld'
 // import Index from '@/views/Index'
@@ -78,15 +84,108 @@ import jssAdishes from "@/views/jssAdishes"
     			component:jssMine
     		},
     	]
+<<<<<<< HEAD
     	
     }
   ]
 })
 */
 
+/*export default new Router({
+	routes: [
+  	
+    {
+    	path:"/",
+    	redirect:'/jsslogin'
+    },
+    {
+    	path:"/jsslogin",
+    	component:jssLogin
+    },
+    {
+    	path:"/jssRegister",
+    	component:jssRegister
+    },
+    {
+    	path:"/jssIndex",
+    	redirect:"/jssHome",
+    	component:jssIndex,
+    	children:[
+    		{
+    			path:"/jssHome",
+    			component:jssHome
+    		},
+    		{
+    			path:"/jssCart",
+    			component:jssCart
+    		},
+    		{
+    			path:"/jssAdishes",
+    			component:jssAdishes
+    		},
+    		{
+    			path:"/jssComlist",
+    			component:jssComlist
+    		},
+    		{
+    			path:"/jssMine",
+    			component:jssMine
+    		},
+    	],
+    },
+    {
+    	path:'/apengkefu',
+    	component:Kefu
+    },
+    {
+    	path:'/apengyouhui',
+    	component:Youhui
+    },
+    {
+    	path:'/apengcaipin',
+    	component:Quan,
+    },
+    {
+    	path:'/apengshixiao',
+    	component:Shi
+    },
+    {
+    	path:'/apengchangjian',
+    	component:Chang
+    },
+    {
+    	path:'/apengliaotian',
+    	component:Liao
+
+      path: '/hotlists',
+      name:'Hotlists',
+      component:Hotlists,
+        path:'/cart',
+        component:Cart
+    },
+  	{
+      path:'/payGoods',
+      component:payGoods
+    },
+    {
+      path:'/addMessage',
+      component:addMessage
+    },
+    
+    {
+      path:'/setting',
+      component:Setting
+    },
+    {
+      path:'/setPassword',
+      component:setPassword
+    },
+    {
+      path:'/message',
+      component:Message
+    }*/
 export default new Router({
   routes: [
-  	
     {
     	path:"/",
     	redirect:'/jsslogin'
@@ -126,27 +225,8 @@ export default new Router({
     		},
     	]
     	
-    },
-  	{
-      path:'/payGoods',
-      component:payGoods
-    },
-    {
-      path:'/addMessage',
-      component:addMessage
-    },
-    
-    {
-      path:'/setting',
-      component:Setting
-    },
-    {
-      path:'/setPassword',
-      component:setPassword
-    },
-    {
-      path:'/message',
-      component:Message
     }
   ]
 })
+
+  

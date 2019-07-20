@@ -3,19 +3,19 @@
 		
 		<div id="aa">
 			<van-nav-bar
-			  title="失效优惠卷 "
+			  title="我的优惠卷 "
 			  left-text=""
+			  right-text="失效优惠卷"
 			  left-arrow
 			  @click-left="onClickLeft"
+			  @click-right="onClickRight"
 			  :fixed="true"
 			/>
 		</div>
 		
 		<div id="bb">
 			
-			<van-tabs v-model="active">
-			  <van-tab title="已使用">
-			  	<van-card
+			<van-card
 				v-for="item in list"
 				:pid="item.pid"
 				:price="item.pprice"
@@ -23,21 +23,6 @@
 				:title="item.pname"
 				:thumb="item.pimg"
 			/>
-			</van-tab>
-			  <van-tab title="已过期">
-			  	<van-card
-				v-for="item in list"
-				:pid="item.pid"
-				:price="item.pprice"
-				:desc="item.pdesc"  
-				:title="item.pname"
-				:thumb="item.pimg"
-			/>
-			</van-tab>
-			 
-			</van-tabs>
-			
-			
 			
 		</div>
 		
@@ -48,7 +33,7 @@
 	import axios from "axios"
 	
 	export default{
-		name:'youhui',
+		name:'apengyouhui',
 		data(){
 			return{
 				list:[]
@@ -67,7 +52,9 @@
 			 onClickLeft() {
 		      this.$router.go(-1)
 		    },
-		    
+		    onClickRight() {
+		       this.$router.push("/apengshixiao")
+		    },
 		}
 	}
 	
@@ -75,7 +62,7 @@
 </script>
 
 <style>
-#bb{
+	#bb{
 		margin-top:46px;
 	}
 	#aa{
