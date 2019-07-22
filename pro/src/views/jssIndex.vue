@@ -52,14 +52,8 @@
 	    
 	  },
 	  mounted(){
-	    	console.log('a')
-	    	axios({
-		    	url:'http://jx.xuzhixiang.top/ap/api/productlist.php',
-		    }).then((data)=>{
-		    	console.log(data.data.data)
-		    	this.list = data.data.data
-		    })
-	    },
+	  	
+	    }
 	    
 	}
 </script>

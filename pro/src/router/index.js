@@ -37,6 +37,7 @@ import jssMine from "@/views/jssMine"
 import jssCart from "@/views/jssCart"
 import jssComlist from "@/views/jssComlist"
 import jssAdishes from "@/views/jssAdishes"
+import jssZhezhao from "@/views/jssZhezhao"
 
 /*export default new Router({
   routes: [
@@ -107,6 +108,10 @@ export default new Router({
     		{
     			path:"/jssHome",
     			component:jssHome
+    		},
+    		{
+    			path:"/jssZhezhao",
+    			component:jssZhezhao
     		},
     		{
     			path:"/jssCart",

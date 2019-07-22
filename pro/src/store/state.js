@@ -1,12 +1,8 @@
 var state = {
-
-	count:1
+	id:0
 }
 
-
+export default state
 
 
 	
-
-
-

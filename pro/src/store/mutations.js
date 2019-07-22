@@ -1,11 +1,10 @@
 var mutations = {
-
-	add(state){
-		state.count++
+	huoqu(state,id){
+		state.id=id
 	}
 }
 
-
+export default mutations;
 
 
 

@@ -4,62 +4,61 @@
 		  title="登陆"
 		/>
 		<van-cell-group>
-		  <van-field
-		    v-model="username"
-		    required
-		    clearable
-		    label="用户名"
-		    right-icon="question-o"
-		    placeholder="请输入用户名/手机号"
-		    @click-right-icon="$toast('输入账号')"
+		   <van-field
+		    v-model="phone"
+		    label="用户名："
+		    placeholder="请输入手机号"
+		    error-message
 		  />
-		
 		  <van-field
 		    v-model="password"
-		    type="password"
-		    label="密码"
-		    placeholder="请输入密码"
-		    required
+		    label="密码："
+		    placeholder="请输入用户名"
+		    error-message
 		  />
 		</van-cell-group>
-		
-		<div class="anniu">
-			<van-button type="primary" @click="index()">登陆</van-button>
-			<van-button type="info" to="/jssregister">注册</van-button>
+		<div id="anniu">
+			<van-button type="primary" @click="deng">登陆</van-button>
+			<van-button type="info" to="/jssRegister">注册</van-button>
 		</div>
-		
 		
 	</div>
 </template>
 
 <script>
+	import axios from "axios"
+	import {mapState,mapGetters,mapActions} from 'vuex';
 	export default{
-		name:"Login",
 		data(){
 			return{
-				username:"",
-				password:""
+				phone:"",
+				password:"",
+				id:0
 			}
 		},
-	methods: {
-		
-	    onClickLeft() {
-	      Toast('返回');
-	    },
-	    onClickRight() {
-	      Toast('按钮');
-	    },
-	    index(){
-	    	this.$router.push("/jssindex")
-	    },
-	    
-	  }
+		methods:{
+			
+			deng(){
+				axios({
+					method:"post",
+					url:"http://106.12.52.107:8081/MeledMall/user/login",
+					params:{phonenum:this.phone,password:this.password}
+				}).then((data)=>{
+					console.log(data.data)
+					this.id = data.data.info.id
+					if(data.data.code == 1){
+						this.$router.push("/jssHome")
+						this.$store.commit("huoqu",this.id)
+					}
+				})
+			}
+		}
 	}
 </script>
 
 <style>
-	.anniu{
-		margin-top:50px;
+	#anniu{
 		margin-left:100px;
+		margin-top: 40px;
 	}
 </style>

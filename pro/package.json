@@ -10,7 +10,6 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "build": "^0.1.4",
     "axios": "^0.19.0",
     "mockjs": "^1.0.1-beta3",
     "vant": "^2.0.8",

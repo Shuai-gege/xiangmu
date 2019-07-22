@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<van-nav-bar
-		  title="全部菜品"
+		  title="搜索"
 		  left-text="返回"
 		  left-arrow
 		  @click-left="onClickLeft"
@@ -66,7 +66,7 @@
 		      this.$router.go(-1)
 		 	},
 		 	tap(){
-				this.kongzhi = !this.kongzhi//取反
+				this.kongzhi = !this.kongzhi//qufan
 				if(this.value == ''){
 					this.kongzhi = false
 				}
