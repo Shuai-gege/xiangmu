@@ -4,7 +4,6 @@ var mutations ={
         state.num = num
     }
 }
-export default mutations;
 
 var mutations = {
 	huoqu(state,id){

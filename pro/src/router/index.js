@@ -9,23 +9,23 @@ import Router from 'vue-router'
 
 import payGoods from '@/views/payGoods'
 import addMessage from '@/views/addMessage'
-import Cart from '@/views/Cart'
+/*import Cart from '@/views/Cart'*/
 import Setting from '@/views/Setting'
 import setPassword from '@/views/setPassword'
 import Message from '@/views/Message'
-import Mine from '@/views/Mine'
-import My from '@/views/My'
+/*import Mine from '@/views/Mine'*/
+/*import My from '@/views/My'*/
 Vue.use(Toast)
 
 Vue.use(Router)
-<<<<<<< HEAD
+
 
 import jssHome from "@/views/jssHome"
 import jssLogin from "@/views/jssLogin"
 import jssRegister from "@/views/jssRegister"
 import jssIndex from "@/views/jssIndex"
-import jssMine from "@/views/jssMine"
-import jssCart from "@/views/jssCart"
+/*import jssMine from "@/views/jssMine"*/
+/*import jssCart from "@/views/jssCart"*/
 import jssComlist from "@/views/jssComlist"
 import jssAdishes from "@/views/jssAdishes"
 import jssZhezhao from "@/views/jssZhezhao"
@@ -105,10 +105,6 @@ export default new Router({
     			component:jssZhezhao
     		},
     		{
-    			path:"/jssCart",
-    			component:jssCart
-    		},
-    		{
     			path:"/jssAdishes",
     			component:jssAdishes
     		},
@@ -116,10 +112,7 @@ export default new Router({
     			path:"/jssComlist",
     			component:jssComlist
     		},
-    		{
-    			path:"/jssMine",
-    			component:jssMine
-    		},
+    		
     	]
     	
     },
@@ -145,46 +138,4 @@ export default new Router({
       component:Message
     }
   ]
-=======
-export default new Router({
-	routes:[
-		 {
-			 path:'/cart',
-			 component:Cart
-		 },
-		 {
-			path:'/payGoods',
-			component:payGoods
-		 },
-		 {
-			path:'/addMessage',
-			component:addMessage
-		 },
-		 {
-			path:'/setting',
-			component:Setting,
-		 },
-		 {
-			path:'/setPassword',
-			component:setPassword
-			 
-		},
-		 {
-			path:'/Message',
-			component:Message
-		 },
-		 {
-			path:'/my',
-			component:My
-		 },
-		 {
-			path:'/mine',
-			component:Mine
-		 },
-
-	]
-  
->>>>>>> 5b6538882c9f15143f19afc1f4559517518d3703
-})
-  
-  
+ })
