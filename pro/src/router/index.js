@@ -2,32 +2,23 @@ import Vue from 'vue'
 import { Toast } from 'vant';
 import Router from 'vue-router'
 
-//import HelloWorld from '@/components/HelloWorld'
-
-import HelloWorld from '@/components/HelloWorld'
 
 
-/*import Quan from '@/viems/caipin'
-import Kefu from '@/viems/kefu'
-import Youhui from '@/viems/youhui'
-import Shi from '@/viems/shixiao'
-import Chang from '@/viems/changjian'
-import Liao from '@/viems/liaotian'*/
 
-import Hotlists from '@/views/Hotlists'
 
-// import HelloWorld from '@/components/HelloWorld'
-// import Index from '@/views/Index'
 
 import payGoods from '@/views/payGoods'
 import addMessage from '@/views/addMessage'
-
+import Cart from '@/views/Cart'
 import Setting from '@/views/Setting'
 import setPassword from '@/views/setPassword'
 import Message from '@/views/Message'
+import Mine from '@/views/Mine'
+import My from '@/views/My'
 Vue.use(Toast)
 
 Vue.use(Router)
+<<<<<<< HEAD
 
 import jssHome from "@/views/jssHome"
 import jssLogin from "@/views/jssLogin"
@@ -154,4 +145,46 @@ export default new Router({
       component:Message
     }
   ]
+=======
+export default new Router({
+	routes:[
+		 {
+			 path:'/cart',
+			 component:Cart
+		 },
+		 {
+			path:'/payGoods',
+			component:payGoods
+		 },
+		 {
+			path:'/addMessage',
+			component:addMessage
+		 },
+		 {
+			path:'/setting',
+			component:Setting,
+		 },
+		 {
+			path:'/setPassword',
+			component:setPassword
+			 
+		},
+		 {
+			path:'/Message',
+			component:Message
+		 },
+		 {
+			path:'/my',
+			component:My
+		 },
+		 {
+			path:'/mine',
+			component:Mine
+		 },
+
+	]
+  
+>>>>>>> 5b6538882c9f15143f19afc1f4559517518d3703
 })
+  
+  

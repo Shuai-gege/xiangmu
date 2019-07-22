@@ -7,29 +7,15 @@ import App from './App'
 //导入vant
 
 import router from './router'
-
-
-import Axios from "axios"
-
-import store from "./store"
-
-Vue.use(Vant)
-Vue.config.productionTip = false
-
-
-
-import  './data/mock.js'
-
-
-
-
-
+import store from './store'
 import './data/mock.js'
 import './data/text.js'
 
-
+Vue.config.productionTip = false
+Vue.use(Vant);
 
 /* eslint-disable no-new */
+
 new Vue({
   el: '#app',
   router,

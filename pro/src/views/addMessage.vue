@@ -51,12 +51,18 @@ export default {
             } else {
                 clearInterval(timer);
                 this.$toast.clear();
-                this.$router.push('/cart')
+                this.$router.push('/my')
             }
             }, 1000);
         },
         onClickLeft(){
             this.$router.go(-1)
+        },
+        onChangeDetail(){
+
+        },
+        onDelete(){
+            
         }
     },  
 }

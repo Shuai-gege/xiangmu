@@ -10,8 +10,18 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+<<<<<<< HEAD
+=======
+    "build": "^0.1.4",
+
+>>>>>>> 5b6538882c9f15143f19afc1f4559517518d3703
     "axios": "^0.19.0",
     "mockjs": "^1.0.1-beta3",
+
+
+    "axios": "^0.19.0",
+    "mockjs": "^1.0.1-beta3",
+
     "vant": "^2.0.8",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
