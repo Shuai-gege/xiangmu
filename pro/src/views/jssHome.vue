@@ -8,13 +8,15 @@
 	<div>
 		<van-pull-refresh v-model="isLoading" @refresh="onRefresh">
 			<div id="zhongjian">
-				<van-search placeholder="请输入搜索关键词" @click='tap()'/>
+				<van-search placeholder="请输入搜索关键词" @click='tap()' style='margin-top:50px;'/>
 				<router-view></router-view>
 				<!--轮播图-->
 				<div>
 					<van-swipe :autoplay="3000" indicator-color="white" id="lun">
 					  <van-swipe-item v-for='item in list'>				  	
-					  		 <img :src="item.picture" style="height='100%'"/>
+					  		 <img :src="item.picture" style="height='100%'"
+					  		 	@click="tap1(item.mid)"
+					  		 	/>
 					  </van-swipe-item>
 					 </van-swipe>
 				</div>
@@ -72,6 +74,7 @@
 						:desc="item.desc"  
 						:title="item.name"
 						:thumb="item.photo"
+						@click='tap2(item.id)'
 					>
 					  <div slot="tags">
 					    <van-tag plain type="danger">标签</van-tag>
@@ -90,10 +93,11 @@
 						:desc="item.desc"  
 						:title="item.name"
 						:thumb="item.photo"
+						@click='tap2(item.id)'
 					>
 					  <div slot="tags">
-					    <van-tag plain type="danger">标签</van-tag>
-					    <van-tag plain type="danger">标签</van-tag>
+					    <van-tag plain type="danger">好吃</van-tag>
+					    <van-tag plain type="danger">有味道</van-tag>
 					  </div>
 					  <div slot="footer">
 					    <van-icon name="add" size="20"/>
@@ -126,6 +130,12 @@
 		    }
 		},
 	  methods: {
+	  	tap2(id){
+	  		this.$router.push("/dfhDetail/"+id)
+	  	},
+	  	tap1(id){
+	  		this.$router.push("/dfhDetail/"+id)
+	  	},
 	  	tap(){
 	  		this.$router.push("/jssZhezhao")
 	  	},
@@ -143,6 +153,7 @@
 		    	url:'http://106.12.52.107:8081/MeledMall/sildeShow/show',
 		    }).then((data)=>{
 		    	this.list = data.data.info
+		    	console.log(data.data.info)
 		    }),
 		    
 		    axios({
@@ -150,6 +161,7 @@
 		    	url:"http://106.12.52.107:8081/MeledMall/menu/parentMenu",
 		    }).then((data)=>{
 		    	this.list1 = data.data.info
+		    	console.log(data.data.info)
 		    }),
 		    
 		    axios({
@@ -172,7 +184,7 @@
 }
 </script>
 
-<style>
+<style scoped="">
 	#miao{
 		position: absolute;
 		
@@ -202,4 +214,5 @@
 	#tuijian{
 		margin-top: 104px;
 	}
+	
 </style>

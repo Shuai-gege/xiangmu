@@ -49,6 +49,10 @@
 					if(data.data.code == 1){
 						this.$router.push("/jssHome")
 						this.$store.commit("huoqu",this.id)
+						window.localStorage.setItem("id",this.id)
+					}
+					if(this.phone == ''){
+						this.$router.push("/")
 					}
 				})
 			}
@@ -56,7 +60,7 @@
 	}
 </script>
 
-<style>
+<style scoped="">
 	#anniu{
 		margin-left:100px;
 		margin-top: 40px;

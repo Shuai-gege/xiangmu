@@ -85,7 +85,7 @@
 	}
 </script>
 
-<style >
+<style  scoped="">
 	li{
 		border: 1px solid #F1F1F1;
 		width:278px;

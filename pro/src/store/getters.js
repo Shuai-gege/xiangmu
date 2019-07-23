@@ -1,5 +1,8 @@
-var getters = {
-	
+
+var getters={
+   
 }
+export default getters;
+
 
 

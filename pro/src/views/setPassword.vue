@@ -30,18 +30,20 @@
   />
 </van-cell-group>
 <div class='psd'>
-<van-button square type="primary" size='large' :style='{marginTop:"25px",padding:"0 25px"}'>确认</van-button>
+<van-button square type="primary"  size='large' :style='{marginTop:"25px",padding:"0 25px"}'>确认</van-button>
 </div>
     </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
     data(){
         return{
             error:'',
             phone:'',
-           res:/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/,
+            password:'',
+            res:/^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/,
         }
     },
     methods: {
@@ -60,7 +62,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped="">
 .psd{
     display: flex;
     justify-content:flex-end;

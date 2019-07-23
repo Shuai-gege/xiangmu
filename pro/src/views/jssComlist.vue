@@ -1,10 +1,11 @@
 <template>
 	<div>
 		<van-nav-bar
-		  title="全部常用清单菜品"
+		  title="常用清单"
 		  left-text="返回"
 		  left-arrow
 		  @click-left="onClickLeft"
+		  :fixed='true'
 		 />
 		
 		<form action="/">
@@ -15,8 +16,11 @@
 		    @search="onSearch"
 		    @cancel="onCancel"
 		    @input="tap()"
+		    @click='tap1()'
+		    style='margin-top: 50px;'
 		  />
 		</form>
+		<router-view></router-view>
 		<ul>
 			<a href="#">
 				<li v-for='item in sousuo'
@@ -27,6 +31,7 @@
 				</li>
 			</a>
 		</ul>
+		<router-view></router-view>
 	</div>
 </template>
 
@@ -56,6 +61,9 @@
 				
 		},
 		methods:{
+			tap1(){
+				this.$router.push("/jssZhezhao")
+			},
 			onSearch(){
 				
 			},
@@ -85,10 +93,11 @@
 	}
 </script>
 
-<style >
+<style  scoped="">
 	li{
 		border: 1px solid #F1F1F1;
 		width:278px;
 		margin-left: 17px;
 	}
+	
 </style>

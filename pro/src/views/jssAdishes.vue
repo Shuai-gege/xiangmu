@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<van-nav-bar
+			
 		  title="全部菜品"
 		  left-text="返回"
 		  left-arrow
@@ -15,6 +16,7 @@
 		    @search="onSearch"
 		    @cancel="onCancel"
 		    @input="tap()"
+		    @click="tap1()"
 		  />
 		</form>
 		<ul>
@@ -56,6 +58,9 @@
 				
 		},
 		methods:{
+			tap1(){
+				this.$router.push("/jssZhezhao")
+			},
 			onSearch(){
 				
 			},
@@ -85,7 +90,7 @@
 	}
 </script>
 
-<style >
+<style  scoped="">
 	li{
 		border: 1px solid #F1F1F1;
 		width:278px;

@@ -3,30 +3,40 @@
 	<div>
 		<!--头部输入框-->
 		<div class="tubiao">
-			<van-icon name="setting" size="24"/>
+			<van-icon name="setting-o" size="24" color="#fff" @click="she"/>
 			&nbsp;&nbsp;&nbsp;
-			<van-icon name="chat" size="24" />
+			<van-icon name="chat-o" size="24" color="#fff" @click="xin"/>
 		</div>
 		
 		<div class="box">
-			<h2>我的</h2>
+			<router-view></router-view>
 		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		
+		methods:{
+			she(){
+				this.$router.push("/setting")
+			},
+			xin(){
+				this.$router.push("/Message")
+			}
+		}
 	}
 </script>
 
-<style>
+<style scoped="">
 	.box{
-		margin-top:46px;
+		/*margin-top:46px;*/
 	}
 	.tubiao{
+		
+		
+		background:#000;
 		height:46px;
-		border-bottom: 1px solid #f1f1f1;
+/*		border-bottom: 1px solid #f1f1f1;*/
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;

@@ -17,7 +17,7 @@
             <van-cell title="检查更新" value="当前版本1.0.1" label="" :center='true' />
             </van-cell-group>
             <div id='tuichu'>
-            <van-button type="primary" size="normal" :block='true' :id="out">退出账号</van-button>
+            <van-button type="primary" size="normal" :block='true' :id="out" @click='out1()'>退出账号</van-button>
             </div>
     </div>
 </template>
@@ -33,11 +33,27 @@ export default {
     onClickLeft() {
         this.$router.go(-1)
     },
+    out1(){
+    	
+    	this.$dialog.confirm({
+		  title: '真的要退出登录吗',
+		  message: ''
+		}).then(() => {
+		  // on confirm
+		  localStorage.removeItem('id')
+		  this.$router.push('/jssHome');
+		  this.$store.commit('fileContent','https://img.yzcdn.cn/vant/cat.jpeg')
+		  
+		}).catch(() => {
+		  // on cancel
+		   
+		});
+    }
   }
 }
 </script>
 
-<style>
+<style scoped="">
 #tuichu{
     width: 100%;
     display: flex;

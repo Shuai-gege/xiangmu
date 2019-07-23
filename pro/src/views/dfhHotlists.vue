@@ -4,61 +4,62 @@
     <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
     <van-tabs v-model="active">
         <van-tab title="为我推荐">
-            <van-card class="AA"
+            <van-card
                 v-for='item in list'
-                :price="item.suijifanwei+'元/斤'"
-                :desc="item.paragraph"  
+                :price="item.price"
+                :desc="item.desc"  
                 :title="item.name"
-                :thumb="item.images"
-                @click="tap(item.pid)"
+                :thumb="item.photo"
+                @click="tap1(item.id)"
+                
             />
-           
         </van-tab>
+
         <van-tab title="常用清单">
             <van-card
                 v-for='item in list'
-                :price="item.suijifanwei+'元/斤'"
-                :desc="item.paragraph"  
+                :price="item.price"
+                :desc="item.desc"  
                 :title="item.name"
-                :thumb="item.images"
-                @click="tap1(item.pid)"
+                :thumb="item.photo"
+                @click="tap1(item.id)"
+                 :fixed='true'
             />
         </van-tab>
     </van-tabs>
     </van-pull-refresh>
 </div>
 
-
 </template>
 
 <script>
 import axios from 'axios'
 export default {
-    name:'Hotlists',
+    name:'dfhHotlists',
     data(){
         return{
             list:[],
             active: 2,
-            count: 0,
             isLoading: false
         }
     },
     mounted(){
         axios({
-            url:'http://jingdong.com/api',
+            method:'post',
+            url:'http://106.12.52.107:8081/MeledMall/menu/recommend',
         }).then((data)=>{
-            this.list = data.data.list
+            this.list = data.data.info
         })
     },
    methods:{
-        onRefresh() {
+        onRefresh(){
             setTimeout(() => {
                 this.$toast('刷新成功');
                 this.isLoading = false;
             }, 500);
         },
-        tap(pid){
-            this.$router.push("/Detail/"+pid)
+        tap1(pid){
+            this.$router.push("/dfhDetail/"+pid)
         }
    }
     

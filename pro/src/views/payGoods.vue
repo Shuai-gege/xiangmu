@@ -12,28 +12,28 @@
         <div class="cartpay" >
         <van-card
             v-for="(item,index) in list"
-            :num="item.nums"
-            :price="item.price"
-            :desc="item.pdesc"  
-            :title="item.ptitle"
-            :thumb="item.pimg" 
+           
+            :price="item.mprice"
+            desc="这是一个商品"  
+            :title="item.mname"
+            :thumb="item.mphoto" 
             tag='新鲜'
             :key='item'
            
         >
             
             
-            <div slot="footer" class="checkbox" >
-            <van-stepper v-model="item.bujin" :disable-input='true' @change='change(index,item.danxuan,item.bujin)' :step='step'/>
-               <van-checkbox  v-model="item.danxuan" class="checkedBox" @click='tao(item.danxuan,index)'></van-checkbox>
+            <div slot="footer" class="checkbox">
+            <van-stepper v-model="item.mnum" :disable-input='true' @change='change(index,item.danxuan,item.mnum)' :step='step'/>
+               <van-checkbox   v-model="item.danxuan" class="checkedBox" @click='tao(item.danxuan,index)'></van-checkbox>
             </div>
         </van-card>
         
        </div>
             <van-submit-bar
             :price="sum"
-            button-text="提交订单"
-            @submit="onSubmit"
+            button-text="支付订单"
+            @submit="onSubmit()"
             >
             <van-checkbox v-model="checked" @click='chioceall'>全选</van-checkbox>
             <span slot="tip">
@@ -52,6 +52,7 @@
 
 <script>
 import axios from 'axios'
+import {mapState,mapGetters,mapActions} from 'vuex';
 
 export default {
         data(){
@@ -63,11 +64,19 @@ export default {
                 step:1,
                 djiage:'',
                 sum : 0,
-                pri:[]
-               
+                pri:[],
+                xuan:0,
+                list1:[],
+                money:0,
+                itemNum:[],
+                mid:[],
+                timer:[],
+                id:null
+                
             }
         },
         methods: {
+        	
             onClickButton(){
                 this.$router.push('/addMessage')
             },
@@ -78,9 +87,12 @@ export default {
 
             },
             onSubmit(){
+               var _this = this
                 if(this.sum == 0){
                     //alert('请选择购买的商品')
                     this.$toast('不好意思，您未购选商品，请选择商品重新购买');
+                }else if(this.sum/100 > this.money){
+                     this.$toast('余额不足，请去充值中心充值')
                 }else{
                     const toast =this.$toast.loading({
                     duration: 0,       // 持续展示 toast
@@ -88,7 +100,6 @@ export default {
                     loadingType: 'spinner',
                     message: '购买成功，跳转中...'
                     });
-
                     let second = 3;
                     const timer = setInterval(() => {
                     second--;
@@ -98,11 +109,29 @@ export default {
                         clearInterval(timer);
                         this.$toast.clear();
                         this.$router.push('/addMessage')
+
                     }
                     }, 1000);
-                    
+                    this.list.forEach((item,index)=>{
+
+                        if(item.danxuan){
+                            this.xuan++
+                            //this.num = this.xuan.length
+                            this.itemNum.push(this.list[index].mnum)
+                            this.mid.push(this.list[index].mid)
+                            //console.log(this.list[index].mid,this.list[index].mnum)
+                            //返回时间
+                            this.getDate()
+                            //this.timer.push(this.timer)
+                        }
+                       
+                    })
+                  this.$store.commit('onSubmit',this.xuan)//把购买的商品给到个人中心展示
+                  this.$store.commit('huafei',this.sum)//花费告诉个人中心的余额
+                  this.$store.commit('itemNum',this.itemNum)//操作mutations的方法，传itemNum
+                   this.$store.commit('mid',this.mid)//操作mutations的方法  传mid
+                    this.$store.commit('timer',this.timer)//操作mutations的方法  传mid
                 }
-                 
             },
             chioceall(){
                 this.sum = 0*0
@@ -120,9 +149,22 @@ export default {
                 }
                 
             },
+            getDate(){
+           var date = new Date();
+            var year = date.getFullYear()
+            var month = date.getMonth()+1
+            var day = date.getDate()
+            var min = date.getMinutes()
+             var hour = date.getHours()
+             var min = date.getMinutes()
+             var ms = date.getSeconds()
+            var time = year+'.'+ month+'.'+ day+' '+hour+':'+min+':'+ms
+               this.timer.push(time)
+            },
             tao(danxuan,index,a){
-                let p =parseFloat(this.list[index].price)*parseFloat(this.list[index].bujin).toFixed(2)
+                let p =parseFloat(this.list[index].mprice)*parseFloat(this.list[index].mnum).toFixed(2)
                 if(!danxuan){
+                   
                     this.sum +=p*100
 
                 }else{
@@ -141,27 +183,38 @@ export default {
                 this.sum = 0*0 //遍历之前先将金额清零
                 this.list.forEach((item,index) => {
                     if(item.danxuan){//判断商品是否选中
-                        this.sum += item.price*item.bujin*100 //金额计算
+                        this.sum += item.mprice*item.mnum*100 //金额计算
                     }
                 });
                 
             }
         },
         mounted() {
+        	var id = localStorage.getItem('id')
+        	this.id = id
             axios({
-                url:'http://www.baidu.com/api',
+                method:'post',
+                url:'http://106.12.52.107:8081/MeledMall/shopCar/showShopCar',
+                params:{uid:this.id}
                 // data:{token:token}
             }).then((data)=>{
-                //console.log(data.data.list.length)
-                this.list =data.data.list 
+                console.log(data.data.info)
+                this.list =data.data.info
+                
+            }),
+             axios({
+                method:'post',
+                url:'http://106.12.52.107:8081/MeledMall/user/mine',
+                params:{id:this.id}
+            }).then((data)=>{
+                console.log(data.data.info)
+                this.money = data.data.info.user.balance
             })
             
-           
         },
-       
 }   
 </script>
-<style>
+<style scoped="">
 .cartpay{
     margin:46px 0 120px 0;
 }
