@@ -10,7 +10,7 @@
 		<form action="/">
 		  <van-search
 		    v-model="value"
-		    placeholder="请输入搜索关键词"
+		    placeholder="请输入带有食物类的关键词  比如：菜、鱼"
 		    show-action
 		    @search="onSearch"
 		    @cancel="onCancel"
@@ -18,14 +18,13 @@
 		  />
 		</form>
 		<ul>
-			<a href="#">
 				<li v-for='item in sousuo'
 					v-text="item.name"
 					v-if="kongzhi"
+					@click="tap1(item.id)"
 					>
 				
 				</li>
-			</a>
 		</ul>
 	</div>
 </template>
@@ -70,6 +69,9 @@
 				if(this.value == ''){
 					this.kongzhi = false
 				}
+			},
+			tap1(id){
+				this.$router.push("/dfhDetail/"+id)
 			}
 		},
 		mounted(){
@@ -77,8 +79,8 @@
 				method:'post',
 				url:"http://106.12.52.107:8081/MeledMall/menu/selectChild"
 			}).then((data)=>{
-				console.log(data.data.info)
-				console.log(this.a)
+//				console.log(data.data.info)
+//				console.log(this.a)
 				this.list = data.data.info
 			})
 		}

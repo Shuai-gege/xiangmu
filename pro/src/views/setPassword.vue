@@ -30,7 +30,7 @@
   />
 </van-cell-group>
 <div class='psd'>
-<van-button square type="primary"  size='large' :style='{marginTop:"25px",padding:"0 25px"}'>确认</van-button>
+<van-button square type="primary"  size='large' :style='{marginTop:"25px",padding:"0 25px"}' @click='que()'>确认</van-button>
 </div>
     </div>
 </template>
@@ -57,6 +57,9 @@ export default {
         },
         onClickLeft(){
             this.$router.go(-1)
+        },
+        que(){
+            this.$notify('注意：目前修改密码功能暂未上线');
         }
     },
 }

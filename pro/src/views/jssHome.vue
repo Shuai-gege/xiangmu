@@ -4,11 +4,13 @@
 		  left-text="客服"
 		  right-text="信息"
 		  :fixed="true"
+		  @click-left='left()'
+		  @click-right='right()'
 		/>
 	<div>
 		<van-pull-refresh v-model="isLoading" @refresh="onRefresh">
 			<div id="zhongjian">
-				<van-search placeholder="请输入搜索关键词" @click='tap()' style='margin-top:50px;'/>
+				<van-search placeholder="请输入带有食物类的关键词  比如：菜、鱼" @click='tap()' style='margin-top:50px;'/>
 				<router-view></router-view>
 				<!--轮播图-->
 				<div>
@@ -23,9 +25,14 @@
 				<!--小方块-->
 				  <div>
 				  	<van-grid :border="false" :column-num="5">
-					  <van-grid-item  v-for="item in list1">
-					    <van-image :src="item.photo"/>
-					    <span>{{item.menu}}</span>
+					  <van-grid-item  v-for="item in list1"
+					  	@click="dian(item.id)"
+					  	style='border:1px solid #F1F1F1'
+					  	
+					  	
+					  	>
+					    <van-image :src="item.photo" style="width:40px; height:40px"/>
+					    <span style="font-size: 10px;">{{item.menu}}</span>
 					  </van-grid-item>
 					</van-grid>
 				  </div>
@@ -35,9 +42,12 @@
 				<van-count-down :time="time"/>
 				<div style="display: inline-block;">
 					<van-grid :border="false" :column-num="5">
-					  <van-grid-item v-for='item in list2'>
-					    <van-image :src="item.photo" />
-					    <span>{{item.menu}}</span>
+					  <van-grid-item v-for='item in list2'
+					  	@click="dian(item.id)"
+					  	style='border:1px solid #F1F1F1'
+					  	>
+					    <van-image :src="item.photo" style="width:40px; height:40px" />
+					    <span style="font-size: 10px;">{{item.menu}}</span>
 					  </van-grid-item>
 					</van-grid>
 				</div>
@@ -66,7 +76,7 @@
 			</div>
 				<!--tap标签-->
 				<van-tabs v-model="active" id="tuijian">
-				  <van-tab title="为你推荐">
+				  <van-tab title="为你推荐" id='di'>
 				  	<van-card
 				  		v-for="item in list3"
 						:pid="item.id"
@@ -85,7 +95,7 @@
 					  </div>
 					</van-card>
 				  </van-tab>
-				  <van-tab title="我的清单">
+				  <van-tab title="我的清单" id='di'>
 				  	<van-card
 				  		v-for="item in list3"
 						:pid="item.id"
@@ -130,6 +140,9 @@
 		    }
 		},
 	  methods: {
+	  	dian(id){
+	  		this.$router.push("/dfhDetail/"+id)
+	  	},
 	  	tap2(id){
 	  		this.$router.push("/dfhDetail/"+id)
 	  	},
@@ -146,6 +159,12 @@
 	        this.count++;
 	      }, 500);
 	    },
+	    left(){
+	    	this.$router.push("/apengkefu")
+	    },
+	    right(){
+	    	this.$router.push("/apengliaotian")
+	    }
 	  },
 	  mounted(){
 	    	axios({
@@ -153,7 +172,7 @@
 		    	url:'http://106.12.52.107:8081/MeledMall/sildeShow/show',
 		    }).then((data)=>{
 		    	this.list = data.data.info
-		    	console.log(data.data.info)
+		    	//console.log(data.data.info)
 		    }),
 		    
 		    axios({
@@ -161,7 +180,7 @@
 		    	url:"http://106.12.52.107:8081/MeledMall/menu/parentMenu",
 		    }).then((data)=>{
 		    	this.list1 = data.data.info
-		    	console.log(data.data.info)
+		    	//console.log(data.data.info)
 		    }),
 		    
 		    axios({
@@ -214,5 +233,7 @@
 	#tuijian{
 		margin-top: 104px;
 	}
-	
+	#di{
+		margin-bottom: 50px;
+	}
 </style>

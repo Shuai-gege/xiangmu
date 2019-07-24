@@ -34,7 +34,7 @@ export default {
         axios({
             url:'http://www.jingdong.com/api'
         }).then((data)=>{
-            console.log(data.data.list)
+            //console.log(data.data.list)
             this.text =  data.data.list
         })
     },

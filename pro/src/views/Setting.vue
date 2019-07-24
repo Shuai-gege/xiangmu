@@ -41,8 +41,10 @@ export default {
 		}).then(() => {
 		  // on confirm
 		  localStorage.removeItem('id')
-		  this.$router.push('/jssHome');
-		  this.$store.commit('fileContent','https://img.yzcdn.cn/vant/cat.jpeg')
+      this.$store.commit('fileContent','https://img.yzcdn.cn/vant/cat.jpeg')
+      this.$store.commit('onSubmit',0)
+      
+       this.$router.push('/jssHome');
 		  
 		}).catch(() => {
 		  // on cancel

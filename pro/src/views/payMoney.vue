@@ -41,9 +41,16 @@ export default {
                     params:{balance:this.value,id:this.id}
                 }).then((data)=>{
                     //console.log(data.data)
+                    if(this.id){
                     this.$dialog.alert({
                         message: '成功充值：'+this.value
                         })
+                    }else{
+                    	this.$dialog.alert({
+                        message: '请先登录！'
+                        })
+                    	
+                    }
                 })
             }
            
@@ -51,6 +58,7 @@ export default {
     mounted(){
     	 var id = localStorage.getItem('id')
     	 this.id = id
+    	
     }
 }
 </script>

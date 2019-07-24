@@ -44,14 +44,14 @@ export default {
         }
     },
     mounted() {
-        console.log(this.list)
+        //console.log(this.list)
         for(let i=0;i<this.list.length;i++){
             axios({
                 method:'post',
                 url:'http://106.12.52.107:8081/MeledMall/menu/child',
                 params:{id:this.list[i]}
             }).then((data)=>{
-                console.log(data.data)
+                //console.log(data.data)
                 this.showlist.push(data.data.info)
                 
                 

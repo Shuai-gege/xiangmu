@@ -3,29 +3,31 @@
         <van-nav-bar
             title="待收货"
             left-text="返回"
-        
+        	:fiexd='true'
             left-arrow
             @click-left="onClickLeft"
           
-            />
-        <van-card
-            v-for='(item,index) in list'
-            :tag="tags[index]"
-            :num="itemNum[index]"
-            :price="item.price"
-            :desc="item.desc"  
-            :title="item.name"
-            :thumb="item.photo"
-            :key='item'
-            
-        >
-       <div slot="footer">
-            <p>{{timer[index]}}</p>
-            
-            <van-button size="small"  :id='index' :val='index' type="info" @click='end($event)' v-if='seen'>确认收货</van-button>
-    
+        />
+        <div class="end">
+            <van-card
+                v-for='(item,index) in list'
+                :tag="tags[index]"
+                :num="itemNum[index]"
+                :price="item.price"
+                :desc="item.desc"  
+                :title="item.name"
+                :thumb="item.photo"
+                :key='item'
+                
+            >
+            <div slot="footer">
+                <p>{{timer[index]}}</p>
+                
+                <van-button size="small"  :id='index' :val='index' type="info" @click='end($event)' v-if='seen'>确认收货</van-button>
+        
+            </div>
+            </van-card>
         </div>
-        </van-card>
         </div>
 </template>
 <script>
@@ -55,7 +57,7 @@ export default {
             //    return
             //  }
             var id = e.target.getAttribute('id')
-           console.log(e.target)
+           //console.log(e.target)
            e.target.setAttribute('disabled','true')
            e.target.setAttribute('class','van-button van-button--danger van-button--small')
            $(e.target).find('span').text('已收货')
@@ -71,23 +73,23 @@ export default {
                     
                 }
             });
-            console.log(id)
-            console.log(that.mid[id])
+           /* console.log(id)
+            console.log(that.mid[id])*/
             
             this.delMid.push(that.mid[id])
            //this.mid.splice(id,1,'')//删除mid数组里对应的mid
            this.num--
            this.$store.commit('onSubmit',this.num)
            this.$store.commit('delMid',this.delMid)
-           console.log(this.$store.state.delMid)
+           //console.log(this.$store.state.delMid)
 
-           console.log()
+          
            
         },
     },
     mounted() {
         var _this =this
-        console.log(this.mid)
+        //console.log(this.mid)
       
         for(let i=0;i<this.$store.state.mid.length;i++){
                 axios({
@@ -98,8 +100,8 @@ export default {
                     
                     _this.list.push(data.data.info)
                     
-                      console.log(_this.list)
-                       console.log(_this.list[2])
+//                    console.log(_this.list)
+//                     console.log(_this.list[2])
                        for(let j=0;j<this.list.length;j++){
                                 this.tags.push('发货中')
                                 //console.log(this.tags)
@@ -116,6 +118,6 @@ export default {
 
 </script>
 
-<style>
-    
+<style scope="">
+   
 </style>

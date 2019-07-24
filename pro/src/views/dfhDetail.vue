@@ -29,6 +29,7 @@
                 type="warning"
                 text="加入购物车"
                 @click="onClickButton"
+                :disabled="bian"
             />
         </van-goods-action>
     </div>
@@ -42,12 +43,14 @@ export default {
             list:[],
             value: 1,
             a:'',
-            id:null
+            id:null,
+            bian:true
         }
     },
     methods: {
+    	
         onClickIcon() {
-            Toast('点击图标');
+            this.$router.push("/payGoods/")
         },
             onClickButton() {
             Toast('点击按钮');
@@ -68,11 +71,11 @@ export default {
                 url:'http://106.12.52.107:8081/MeledMall/shopCar/editMnum',
                 data:{
                     mnum:this.value,
-                    uid:15,
+                    uid:this.id,
                     mid:this.a
                 }
             }).then((data)=>{
-                console.log(data.data)
+                //console.log(data.data)
             })
         },
         onClickLeft(){
@@ -84,7 +87,7 @@ export default {
         this.a = a
         var id = localStorage.getItem("id")
         this.id = id
-        console.log(this.a)
+        //console.log(this.a)
         axios({
             method:'post',
             url:'http://106.12.52.107:8081/MeledMall/menu/child',
@@ -96,9 +99,10 @@ export default {
             method:'post',
             url:'http://106.12.52.107:8081/MeledMall/shopCar/showShopCar',
             params:{uid:this.id}
-        }).then((data)=>{
-
-        })
+        }).then((data)=>{})
+        if(this.id){
+        	this.bian = false
+        }
     }
 }
 </script>

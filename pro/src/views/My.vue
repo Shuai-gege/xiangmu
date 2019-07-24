@@ -100,27 +100,33 @@ export default {
           })
       },
       to(){
-        this.$router.push('/reGoods')
+        if(this.id){
+            this.$router.push('/reGoods')
+        }else{
+          this.$notify('请先登录哦');
+          
+        }
+        
       }
   },
   mounted() {
   	var id = localStorage.getItem('id');
-     console.log(id)
+     //console.log(id)
      this.id = id
-      console.log(this.$store.state.num)
+      //console.log(this.$store.state.num)
       this.url = this.$store.state.fileContent
       axios({
             method:'post',
             url:'http://106.12.52.107:8081/MeledMall/user/recharge',
             params:{balance:-this.huafei/100,id:this.id}
       }).then((data)=>{
-        console.log(data.data)
+        //console.log(data.data)
           axios({
             method:'post',
             url:'http://106.12.52.107:8081/MeledMall/user/mine',
             params:{id:this.id}
           }).then((data)=>{
-              console.log(data.data.info)
+              //console.log(data.data.info)
               this.money = data.data.info.user.balance
               
               this.$store.state.huafei=0
@@ -138,7 +144,8 @@ export default {
      if(this.id == null){
      	this.name = 'CJQ'
      	this.showLogin =true;
-     	this.name = null
+       this.name = null
+       this.info=''
      }
   },
  

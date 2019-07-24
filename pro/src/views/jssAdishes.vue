@@ -11,7 +11,7 @@
 		<form action="/">
 		  <van-search
 		    v-model="value"
-		    placeholder="请输入搜索关键词"
+		    placeholder="请输入带有食物类的关键词  比如：菜、鱼"
 		    show-action
 		    @search="onSearch"
 		    @cancel="onCancel"
@@ -29,6 +29,7 @@
 				</li>
 			</a>
 		</ul>
+		<router-view></router-view>
 	</div>
 </template>
 
@@ -82,8 +83,8 @@
 				method:'post',
 				url:"http://106.12.52.107:8081/MeledMall/menu/selectChild"
 			}).then((data)=>{
-				console.log(data.data.info)
-				console.log(this.a)
+//				console.log(data.data.info)
+//				console.log(this.a)
 				this.list = data.data.info
 			})
 		}

@@ -44,16 +44,38 @@
 					url:"http://106.12.52.107:8081/MeledMall/user/login",
 					params:{phonenum:this.phone,password:this.password}
 				}).then((data)=>{
-					console.log(data.data)
+					//console.log(data.data)
 					this.id = data.data.info.id
 					if(data.data.code == 1){
-						this.$router.push("/jssHome")
-						this.$store.commit("huoqu",this.id)
-						window.localStorage.setItem("id",this.id)
+						 const toast = this.$toast.loading({
+						duration: 0,       // 持续展示 toast
+						forbidClick: true, // 禁用背景点击
+						loadingType: 'spinner',
+						message: '验证成功,跳转中...'
+						});
+						let second = 3;
+						const timer = setInterval(() => {
+						second--;
+						if (second) {
+							toast.message = `登录成功,跳转中...`;
+						} else {
+							clearInterval(timer);
+							this.$toast.clear();
+							this.$router.push("/jssHome")
+							this.$store.commit("huoqu",this.id)
+							window.localStorage.setItem("id",this.id)
+						}
+						}, 1000);
+							
+					}else{
+						this.$dialog.alert({
+						title: '登录状态提示',
+						message: '此账号未找到，或网络错误，请重试'
+						}).then(() => {
+						// on close
+						});
 					}
-					if(this.phone == ''){
-						this.$router.push("/")
-					}
+				
 				})
 			}
 		}

@@ -40,13 +40,35 @@ export default {
 				url:"http://106.12.52.107:8081/MeledMall/user/register",
 				params:{phonenum:this.phone,password:this.password}
 			}).then((data)=>{
-				console.log(data.data)
+				//console.log(data.data)
 				if(data.data.code == 1){
-					this.$router.push("/jssLogin")
+						const toast = this.$toast.loading({
+						duration: 0,       // 持续展示 toast
+						forbidClick: true, // 禁用背景点击
+						loadingType: 'spinner',
+						message: '验证成功,跳转中...'
+						});
+						let second = 3;
+						const timer = setInterval(() => {
+						second--;
+						if (second) {
+							toast.message = `注册成功,跳转中...`;
+						} else {
+							clearInterval(timer);
+							this.$toast.clear();
+							this.$router.push("/jssLogin")
+							
+						}
+						}, 1000);
+				}else{
+					this.$dialog.alert({
+						title: '注册状态提示',
+						message: '此用户已存在，请重新注册'
+						}).then(() => {
+						// on close
+					});
 				}
-				if(data.data.code){
-					this.$router.push("/")
-				}
+			
 			})
 		},
 		

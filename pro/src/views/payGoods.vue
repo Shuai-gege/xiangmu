@@ -198,7 +198,7 @@ export default {
                 params:{uid:this.id}
                 // data:{token:token}
             }).then((data)=>{
-                console.log(data.data.info)
+                //console.log(data.data.info)
                 this.list =data.data.info
                 
             }),
@@ -207,7 +207,7 @@ export default {
                 url:'http://106.12.52.107:8081/MeledMall/user/mine',
                 params:{id:this.id}
             }).then((data)=>{
-                console.log(data.data.info)
+                //console.log(data.data.info)
                 this.money = data.data.info.user.balance
             })
             

@@ -3,7 +3,7 @@
 <div>
     <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
     <van-tabs v-model="active">
-        <van-tab title="为我推荐">
+        <van-tab title="为我推荐" id='di'>
             <van-card
                 v-for='item in list'
                 :price="item.price"
@@ -15,7 +15,7 @@
             />
         </van-tab>
 
-        <van-tab title="常用清单">
+        <van-tab title="常用清单" id='di'>
             <van-card
                 v-for='item in list'
                 :price="item.price"
@@ -67,5 +67,7 @@ export default {
 </script>
 
 <style>
-
+#di{
+	margin-bottom: 50px;
+}
 </style>

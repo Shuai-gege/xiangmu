@@ -36,7 +36,7 @@ export default {
       mounted(){
       	var id = localStorage.getItem('id')
         this.id = id
-        console.log(this.id)
+        //console.log(this.id)
         if(this.id){
         	this.abc = '这是一个商品'
         }
@@ -46,7 +46,7 @@ export default {
              params:{uid:this.id}
              //data:{token:token}
           }).then((data)=>{
-            console.log(data.data.info)
+            //console.log(data.data.info)
             this.list = data.data.info
           })
           

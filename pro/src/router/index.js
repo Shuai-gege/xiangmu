@@ -28,13 +28,51 @@ import History from '@/views/History'
 import dfhDetail from "@/views/dfhDetail"
 import dfhHotlists from "@/views/dfhHotlists"
 //
+//王鹏
+import Quan from '@/views/apengcaipin'
+import Kefu from '@/views/apengkefu'
+import Youhui from '@/views/apengyouhui'
+import Shi from '@/views/apengshixiao'
+import Chang from '@/views/apengchangjian'
+import Liao from '@/views/apengliaotian'
+import De from '@/views/apengdetail'
+//
 export default new Router({
 	routes: [
-	{
-		path:"/dfhDetail/:id",
-		component:dfhDetail
-	},
-	{
+		{
+			path: '/addMessage',
+			component: addMessage
+		},
+		{
+			path: '/apengkefu',
+			component: Kefu
+		},
+		{
+			path: '/apengyouhui',
+			component: Youhui
+		},
+		
+		{
+			path: '/apengshixiao',
+			component: Shi
+		},
+		{
+			path: '/apengchangjian',
+			component: Chang
+		},
+		{
+			path: '/apengliaotian',
+			component: Liao
+		},
+		{
+			path: '/apengdetail/:id',
+			component: De
+		},
+		{
+			path: "/dfhDetail/:id",
+			component: dfhDetail
+		},
+		{
 			path: '/payMoney',
 			component: payMoney
 		},
@@ -61,7 +99,7 @@ export default new Router({
 		},
 		{
 			path: "/",
-			redirect: '/jsslogin'
+			redirect: '/jssHome'
 		},
 		{
 			path: "/jsslogin",
@@ -95,17 +133,21 @@ export default new Router({
 				},
 				{
 					path: "/jssAdishes",
-					component: jssAdishes
+					component: jssAdishes,
+					children:[
+						{
+				    	path: '/apengcaipin',
+							component: Quan,
+				    },
+					]
 				},
 				{
 					path: "/jssComlist",
 					component: jssComlist,
-					children:[
-						{
-							path:"/dfhHotlists",
-							component:dfhHotlists
-						}
-					]
+					children: [{
+						path: "/dfhHotlists",
+						component: dfhHotlists
+					}]
 				},
 				{
 					path: "/jssMine",
@@ -120,10 +162,7 @@ export default new Router({
 					path: '/payGoods',
 					component: payGoods
 				},
-				{
-					path: '/addMessage',
-					component: addMessage
-				},
+				
 
 			]
 

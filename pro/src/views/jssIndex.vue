@@ -12,7 +12,7 @@
 			<!--底部-->
 			<van-tabbar v-model="active">
 			  <van-tabbar-item name="home" icon="home-o" to="/jssHome">首页</van-tabbar-item>
-			  <van-tabbar-item name="search" icon="search" to="/jssAdishes">全部菜品</van-tabbar-item>
+			  <van-tabbar-item name="search" icon="search" to="/apengcaipin">全部菜品</van-tabbar-item>
 			  <van-tabbar-item name="friends" icon="wap-nav" to="/dfhHotlists">常用清单</van-tabbar-item>
 			  <van-tabbar-item name="setting" icon="shopping-cart" to="/cart">购物车</van-tabbar-item>
 			  <van-tabbar-item name="setting" icon="friends-o" to="/my">我的</van-tabbar-item>
@@ -82,4 +82,5 @@
 	.shijian{
 		float: right;
 	}
+	
 </style>
